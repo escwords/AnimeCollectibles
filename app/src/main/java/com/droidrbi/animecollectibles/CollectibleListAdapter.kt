@@ -34,6 +34,9 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
     override fun getItemCount(): Int = _dataset.size
 
     override fun onBindViewHolder(holder: CollectibleViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = _dataset[position]
+        holder.characterTextView.text = item.character
+        holder.collectionTextView.text = item.collection
+        holder.thumbnailImageView.setImageResource(item.thumbnail)
     }
 }
