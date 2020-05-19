@@ -1,0 +1,2 @@
+rootProject.name='AnimeCollectibles'
+include ':app'
