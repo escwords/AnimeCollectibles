@@ -31,9 +31,7 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
         return CollectibleViewHolder(itemView)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = _dataset.size
 
     override fun onBindViewHolder(holder: CollectibleViewHolder, position: Int) {
         TODO("Not yet implemented")
