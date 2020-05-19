@@ -15,10 +15,12 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
         var characterTextView: TextView
         var thumbnailImageView: ImageView
         var collectionTextView: TextView
+        var costTextView: TextView
         init {
             characterTextView =itemView.findViewById(R.id.characterTextView)
             thumbnailImageView = itemView.findViewById(R.id.thumbnail)
             collectionTextView = itemView.findViewById(R.id.collectionTextView)
+            costTextView = itemView.findViewById(R.id.costTextView)
 
         }
 
@@ -37,6 +39,9 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
         val item = _dataset[position]
         holder.characterTextView.text = item.character
         holder.collectionTextView.text = item.collection
-        holder.thumbnailImageView.setImageResource(item.thumbnail)
+        holder.costTextView.text = item.cost
+        if (item.thumbnail != 0) {
+            holder.thumbnailImageView.setImageResource(item.thumbnail)
+        }
     }
 }
