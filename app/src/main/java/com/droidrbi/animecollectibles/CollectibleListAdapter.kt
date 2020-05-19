@@ -1,5 +1,6 @@
 package com.droidrbi.animecollectibles
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -24,7 +25,10 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectibleViewHolder {
-        TODO("Not yet implemented")
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_layout, parent, false)
+
+        return CollectibleViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
