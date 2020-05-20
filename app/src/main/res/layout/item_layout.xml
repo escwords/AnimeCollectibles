@@ -7,7 +7,8 @@
     android:layout_marginLeft="@dimen/item_layout_margin"
     android:layout_marginTop="@dimen/item_layout_margin"
     android:layout_marginRight="@dimen/item_layout_margin"
-    android:background="@color/colorWhite">
+    android:background="@drawable/item_background"
+    android:elevation="@dimen/elevation">
 
     <ImageView
         android:id="@+id/thumbnail"
@@ -18,41 +19,31 @@
         android:contentDescription="@string/collectible_thumbnail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:srcCompat="@android:drawable/sym_def_app_icon"
+        android:elevation="@dimen/elevation"/>
 
     <TextView
         android:id="@+id/characterTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_padding"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/raleway_medium"
         android:textColor="@color/textColor"
         android:textSize="@dimen/title_size"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/thumbnail"
         app:layout_constraintTop_toTopOf="@+id/thumbnail"
         tools:text="Mikasa Ackerman" />
 
     <TextView
-        android:id="@+id/collectionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_padding"
-        android:layout_marginBottom="@dimen/item_padding"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/collection_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail"
-        tools:text="@string/attack_on_titan" />
-
-    <TextView
         android:id="@+id/costTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginStart="@dimen/item_padding"
+        android:layout_marginTop="16dp"
         android:text="@string/sold_out"
         android:textColor="@color/textColor"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="@dimen/cost_size"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/characterTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,12 +14,10 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
     class CollectibleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var characterTextView: TextView
         var thumbnailImageView: ImageView
-        var collectionTextView: TextView
         var costTextView: TextView
         init {
             characterTextView =itemView.findViewById(R.id.characterTextView)
             thumbnailImageView = itemView.findViewById(R.id.thumbnail)
-            collectionTextView = itemView.findViewById(R.id.collectionTextView)
             costTextView = itemView.findViewById(R.id.costTextView)
 
         }
@@ -38,7 +36,6 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
     override fun onBindViewHolder(holder: CollectibleViewHolder, position: Int) {
         val item = _dataset[position]
         holder.characterTextView.text = item.character
-        holder.collectionTextView.text = item.collection
         holder.costTextView.text = item.cost
         if (item.thumbnail != 0) {
             holder.thumbnailImageView.setImageResource(item.thumbnail)

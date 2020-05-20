@@ -6,4 +6,6 @@
     <dimen name="title_size">24sp</dimen>
     <dimen name="item_layout_margin">8dp</dimen>
     <dimen name="collection_size">20sp</dimen>
+    <dimen name="cost_size">20sp</dimen>
+    <dimen name="elevation">4dp</dimen>
 </resources>
