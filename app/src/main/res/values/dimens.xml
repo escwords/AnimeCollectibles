@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="item_padding">16dp</dimen>
-    <dimen name="item_layout_height">72dp</dimen>
-    <dimen name="thumbnail_dimen">40dp</dimen>
-    <dimen name="title_size">16sp</dimen>
+    <dimen name="item_layout_height">120dp</dimen>
+    <dimen name="thumbnail_dimen">90dp</dimen>
+    <dimen name="title_size">24sp</dimen>
     <dimen name="item_layout_margin">8dp</dimen>
-    <dimen name="collection_size">12sp</dimen>
+    <dimen name="collection_size">20sp</dimen>
 </resources>

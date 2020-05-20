@@ -6,7 +6,8 @@
     android:layout_height="@dimen/item_layout_height"
     android:layout_marginLeft="@dimen/item_layout_margin"
     android:layout_marginTop="@dimen/item_layout_margin"
-    android:layout_marginRight="@dimen/item_layout_margin">
+    android:layout_marginRight="@dimen/item_layout_margin"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/thumbnail"
@@ -24,7 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_padding"
-        android:fontFamily="@font/aclonica"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/title_size"
         app:layout_constraintStart_toEndOf="@+id/thumbnail"
         app:layout_constraintTop_toTopOf="@+id/thumbnail"
@@ -36,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_padding"
         android:layout_marginBottom="@dimen/item_padding"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/collection_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/thumbnail"
@@ -45,9 +48,10 @@
         android:id="@+id/costTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/item_padding"
-        android:layout_marginEnd="@dimen/item_padding"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
         android:text="@string/sold_out"
+        android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
