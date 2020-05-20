@@ -38,7 +38,7 @@ class DatasetGenerator {
                     R.drawable.jin,
                     "Jin",
                     "Samurai Champloo",
-                    "12"
+                    "$12"
                 )
             )
             result.add(
@@ -49,9 +49,54 @@ class DatasetGenerator {
                     "$17"
                 )
             )
-
-
-
+            result.add(
+                Collectible(
+                    R.drawable.killua,
+                    "Killua",
+                    "Hunter x Hunter",
+                    "$13"
+                )
+            )
+            result.add(
+                Collectible(
+                    R.drawable.kuchiki_byakuya,
+                    "Kuchiki Byakuya",
+                    "Bleach",
+                    "$30"
+                )
+            )
+            result.add(
+                Collectible(
+                    R.drawable.levi_ackerman,
+                    "Levi Ackerman",
+                    "Attack on Titan",
+                    "SOLD OUT"
+                )
+            )
+            result.add(
+                Collectible(
+                    R.drawable.ryuk,
+                    "Ryuk",
+                    "Death Note",
+                    "$30"
+                )
+            )
+            result.add(
+                Collectible(
+                    R.drawable.rintaro,
+                    "Rintarou Okabe",
+                    "Steins;Gate",
+                    "$12"
+                )
+            )
+            result.add(
+                Collectible(
+                    R.drawable.mugen,
+                    "Mugen",
+                    "Samurai Champloo",
+                    "$15"
+                )
+            )
             return result
         }
     }
