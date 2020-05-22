@@ -1,5 +1,6 @@
 package com.droidrbi.animecollectibles
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,6 +30,13 @@ class MainActivity : AppCompatActivity(), CollectibleListAdapter.OnItemClickList
     }
 
     override fun onItemClick(collectible: Collectible) {
-        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show()
+        openAboutProduct()
+    }
+
+    private fun openAboutProduct() {
+        val intent = Intent(this@MainActivity, AboutActivity::class.java)
+        startActivity(intent)
     }
 }
+
+
