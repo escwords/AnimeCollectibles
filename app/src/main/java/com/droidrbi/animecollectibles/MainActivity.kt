@@ -3,7 +3,6 @@ package com.droidrbi.animecollectibles
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.droidrbi.animecollectibles.models.Collectible
@@ -30,11 +29,15 @@ class MainActivity : AppCompatActivity(), CollectibleListAdapter.OnItemClickList
     }
 
     override fun onItemClick(collectible: Collectible) {
-        openAboutProduct()
+        openAboutProduct(collectible)
     }
 
-    private fun openAboutProduct() {
+    private fun openAboutProduct(collectible: Collectible) {
         val intent = Intent(this@MainActivity, AboutActivity::class.java)
+        intent.putExtra("character", collectible.character)
+        intent.putExtra("collection", collectible.collection)
+        intent.putExtra("thumbnail", collectible.thumbnail)
+        intent.putExtra("cost", collectible.cost)
         startActivity(intent)
     }
 }
