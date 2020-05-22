@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.droidrbi.animecollectibles.models.Collectible
+import kotlinx.android.synthetic.main.item_layout.view.*
 
 class AboutActivity : AppCompatActivity() {
 
@@ -39,6 +41,8 @@ class AboutActivity : AppCompatActivity() {
         }
         if(collectible.cost == "SOLD OUT"){
             addToCartButton.text = getString(R.string.join_waitlist)
+            addToCartButton.
+            costTextView.setTextColor(ContextCompat.getColor(this, R.color.colorTextView))
         }
         costTextView.text = collectible.cost
         characterTextView.text = collectible.character
