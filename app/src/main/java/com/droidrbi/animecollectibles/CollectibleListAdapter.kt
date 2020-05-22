@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.droidrbi.animecollectibles.models.Collectible
 
-class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
+class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>, var itemClickListener: OnItemClickListener):
     RecyclerView.Adapter<CollectibleListAdapter.CollectibleViewHolder>() {
 
     class CollectibleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -20,6 +20,12 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
             thumbnailImageView = itemView.findViewById(R.id.thumbnail)
             costTextView = itemView.findViewById(R.id.costTextView)
 
+        }
+
+        fun bind(collectible: Collectible, clickListener: OnItemClickListener){
+            itemView.setOnClickListener(){
+                clickListener.onItemClick(collectible)
+            }
         }
 
     }
@@ -40,5 +46,11 @@ class CollectibleListAdapter(private val _dataset:ArrayList<Collectible>):
         if (item.thumbnail != 0) {
             holder.thumbnailImageView.setImageResource(item.thumbnail)
         }
+        holder.bind(item, itemClickListener)
     }
+
+    interface OnItemClickListener{
+        fun onItemClick(collectible: Collectible)
+    }
+
 }
