@@ -41,7 +41,7 @@ class AboutActivity : AppCompatActivity() {
         }
         if(collectible.cost == "SOLD OUT"){
             addToCartButton.text = getString(R.string.join_waitlist)
-            addToCartButton.
+
             costTextView.setTextColor(ContextCompat.getColor(this, R.color.colorTextView))
         }
         costTextView.text = collectible.cost
