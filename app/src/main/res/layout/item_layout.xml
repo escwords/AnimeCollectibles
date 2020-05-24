@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/item_layout_height"
-    android:layout_marginLeft="@dimen/item_layout_margin"
-    android:layout_marginTop="@dimen/item_layout_margin"
-    android:layout_marginRight="@dimen/item_layout_margin"
-    android:background="@drawable/item_background"
-    android:elevation="@dimen/elevation">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="collectible"
+            type="com.droidrbi.animecollectibles.models.Collectible" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_layout_height"
+        android:layout_marginLeft="@dimen/item_layout_margin"
+        android:layout_marginTop="@dimen/item_layout_margin"
+        android:layout_marginRight="@dimen/item_layout_margin"
+        android:background="@drawable/item_background"
+        android:elevation="@dimen/elevation">
 
-    <ImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="@dimen/thumbnail_dimen"
-        android:layout_height="@dimen/thumbnail_dimen"
-        android:layout_marginStart="@dimen/item_padding"
-        android:layout_marginTop="@dimen/item_padding"
-        android:contentDescription="@string/collectible_thumbnail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        android:elevation="@dimen/elevation"/>
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="@dimen/thumbnail_dimen"
+            android:layout_height="@dimen/thumbnail_dimen"
+            android:layout_marginStart="@dimen/item_padding"
+            android:layout_marginTop="@dimen/item_padding"
+            android:contentDescription="@string/collectible_thumbnail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/sym_def_app_icon"
+            android:elevation="@dimen/elevation"/>
 
-    <TextView
-        android:id="@+id/characterTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_padding"
-        android:fontFamily="@font/raleway_medium"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/title_size"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail"
-        app:layout_constraintTop_toTopOf="@+id/thumbnail"
-        tools:text="Mikasa Ackerman" />
+        <TextView
+            android:id="@+id/characterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_padding"
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/title_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/thumbnail"
+            app:layout_constraintTop_toTopOf="@+id/thumbnail"
+            android:text="@{collectible.character}"
+            tools:text="Mikasa Ackerman" />
 
-    <TextView
-        android:id="@+id/costTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/item_padding"
-        android:layout_marginTop="16dp"
-        android:text="@string/sold_out"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/cost_size"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail"
-        app:layout_constraintTop_toBottomOf="@+id/characterTextView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/costTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_padding"
+            android:layout_marginTop="16dp"
+            android:text="@{collectible.cost}"
+            tools:text="SOLD OUT"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/cost_size"
+            app:layout_constraintStart_toEndOf="@+id/thumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/characterTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
