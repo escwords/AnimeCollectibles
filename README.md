@@ -8,7 +8,7 @@
  </p>
   
  ## About
- Anime Collectibles is an E-commerce Android app built using Kotlin, RecyclerView and Material Design
+ Anime Collectibles is an E-commerce Android app built using Kotlin, RecyclerView, Data Binding and Material Design
  
  ## Requirement
  * Android Studio
