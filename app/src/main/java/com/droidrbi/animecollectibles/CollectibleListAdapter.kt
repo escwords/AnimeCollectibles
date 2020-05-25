@@ -7,14 +7,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.droidrbi.animecollectibles.databinding.ItemLayoutBinding
 import com.droidrbi.animecollectibles.models.Collectible
 
-class CollectibleListAdapter(private val _dataset: ArrayList<Collectible>) :
+class CollectibleListAdapter(
+    private val _dataset: ArrayList<Collectible>,
+    var itemClickListener: OnItemClickListener
+) :
     RecyclerView.Adapter<CollectibleListAdapter.CollectibleViewHolder>() {
 
     class CollectibleViewHolder(_itemLayoutBinding: ItemLayoutBinding) :
         RecyclerView.ViewHolder(_itemLayoutBinding.root) {
 
         var itemLayoutBinding: ItemLayoutBinding = _itemLayoutBinding
+
+        fun bind(collectible: Collectible, clickListener: OnItemClickListener) {
+            itemView.setOnClickListener {
+                clickListener.onItemClick(collectible)
+            }
+        }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectibleViewHolder {
         val itemLayoutBinding = DataBindingUtil.inflate<ItemLayoutBinding>(
@@ -33,6 +43,11 @@ class CollectibleListAdapter(private val _dataset: ArrayList<Collectible>) :
         val item = _dataset[position]
         holder.itemLayoutBinding.collectible = item
         holder.itemLayoutBinding.thumbnail.setImageResource(item.thumbnail)
+        holder.bind(item, itemClickListener)
+    }
 
+
+    interface OnItemClickListener {
+        fun onItemClick(collectible: Collectible)
     }
 }
