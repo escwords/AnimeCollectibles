@@ -5,15 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.droidrbi.animecollectibles.databinding.FragmentListBinding
 import com.droidrbi.animecollectibles.models.Collectible
+import com.droidrbi.animecollectibles.utils.DatasetGenerator
 
 /**
  * A simple [Fragment] subclass.
  */
 class ListFragment : Fragment() {
 
-    private lateinit var _mainBinding: FragmentListBinding
+    private lateinit var _listBinding: FragmentListBinding
     private lateinit var _dataset: ArrayList<Collectible>
     private lateinit var _adapter: CollectibleListAdapter
 
@@ -21,14 +23,15 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-/*        _mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        _mainBinding.collectibleListView.layoutManager = LinearLayoutManager(this)
-        _mainBinding.collectibleListView.hasFixedSize()
+
+        _listBinding = FragmentListBinding.inflate(inflater, container, false)
+        _listBinding.collectibleListView.layoutManager = LinearLayoutManager(context)
+        _listBinding.collectibleListView.hasFixedSize()
         _dataset = DatasetGenerator.generateData()
         _adapter = CollectibleListAdapter(_dataset)
-        _mainBinding.collectibleListView.adapter = _adapter
-        _mainBinding.collectibleListView.adapter*/
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        _listBinding.collectibleListView.adapter = _adapter
+        _listBinding.collectibleListView.adapter
+        return _listBinding.root
     }
 
 }
