@@ -1,83 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite"
     tools:context=".DetailFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="collectible"
+            type="com.droidrbi.animecollectibles.models.Collectible" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:padding="32dp">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
 
-        <ImageView
-            android:id="@+id/thumbnailImageView"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/big_thumbnail_dimension"
-            android:contentDescription="@string/thumbnail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/alphonse" />
-
-        <TextView
-            android:id="@+id/characterTextView"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/raleway_medium"
-            android:textAllCaps="true"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/title_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/collectionTextView"
-            tools:text="Alphonse Eric" />
+            android:background="@color/colorWhite"
+            android:padding="32dp">
 
-        <TextView
-            android:id="@+id/priceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:gravity="center_horizontal"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/cost_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/characterTextView"
-            tools:text="$14" />
+            <ImageView
+                android:id="@+id/thumbnailImageView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/big_thumbnail_dimension"
+                android:contentDescription="@string/thumbnail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{collectible.thumbnail > 0 ? ContextCompat.getDrawable(context, collectible.thumbnail): @android:drawable/sym_def_app_icon}" />
 
-        <TextView
-            android:id="@+id/collectionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ellipsize="end"
-            android:textAllCaps="true"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/collection_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thumbnailImageView"
-            tools:text="Full Metal Alchemist Brotherhood" />
+            <TextView
+                android:id="@+id/characterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/raleway_medium"
+                android:textAllCaps="true"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{collectible.character != null? collectible.character: @string/empty}"
+                app:layout_constraintTop_toBottomOf="@+id/collectionTextView"
+                tools:text="Alphonse Eric" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:background="@color/colorGreen"
-            android:text="@string/add_to_cart"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/priceTextView" />
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center_horizontal"
+                android:text="@{collectible.cost != null  ? collectible.cost: @string/empty}"
+                android:textSize="@dimen/cost_size"
+                android:textStyle="bold"
+                android:textColor="@{collectible.cost.equals(`SOLD OUT`) ? @color/colorTextView : @color/colorPrimary}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/characterTextView"
+                tools:text="$14" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/collectionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ellipsize="end"
+                android:textAllCaps="true"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/collection_size"
+                android:text="@{collectible.collection!=null? collectible.collection: @string/empty}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/thumbnailImageView"
+                tools:text="Full Metal Alchemist Brotherhood" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorGreen"
+                android:text="@{collectible.cost.equals(@string/sold_out) ? @string/join_waitlist : @string/add_to_cart}"
+                android:visibility="@{collectible.cost != null ? View.VISIBLE: View.GONE}"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceTextView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+</layout>
 
