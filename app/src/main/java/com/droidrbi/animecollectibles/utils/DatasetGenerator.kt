@@ -1,6 +1,5 @@
 package com.droidrbi.animecollectibles.utils
 
-import android.content.Context
 import com.droidrbi.animecollectibles.R
 import com.droidrbi.animecollectibles.models.Collectible
 
