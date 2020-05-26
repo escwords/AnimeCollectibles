@@ -1,4 +1,4 @@
-# Anime Collectibles(Work In Progress)
+# Anime Collectibles
 
  ## An Android RecyclerView app for purchasing Anime Collectibles
 
