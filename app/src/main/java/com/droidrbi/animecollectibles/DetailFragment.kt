@@ -21,14 +21,8 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _detailBinding = FragmentDetailBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
-        _collectible = Collectible(
-            R.drawable.mikasa,
-            "Mikasa Ackerman",
-            "Attack on Titan",
-            "SOLD OUT"
-        )
-
+        val args = DetailFragmentArgs.fromBundle(requireArguments())
+        _collectible = args.collectible
         _detailBinding.collectible = _collectible
         return _detailBinding.root
     }

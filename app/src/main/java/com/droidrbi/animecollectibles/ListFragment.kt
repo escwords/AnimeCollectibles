@@ -46,7 +46,7 @@ class ListFragment : Fragment(), CollectibleListAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(collectible: Collectible) {
-        navController.navigate(R.id.action_listFragment_to_detailFragment)
+        navController.navigate(ListFragmentDirections.actionListFragmentToDetailFragment(collectible))
     }
 
 }
